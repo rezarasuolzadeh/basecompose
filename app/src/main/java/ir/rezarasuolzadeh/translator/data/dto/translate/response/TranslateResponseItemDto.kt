@@ -1,10 +1,10 @@
 package ir.rezarasuolzadeh.translator.data.dto.translate.response
 
-import com.squareup.moshi.Json
-import com.squareup.moshi.JsonClass
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
-@JsonClass(generateAdapter = true)
+@Serializable
 data class TranslateResponseItemDto(
-    @Json(name = "translatedText")
+    @SerialName(value = "translatedText")
     val translatedText: String? = null
 )

@@ -17,16 +17,19 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 import java.util.concurrent.TimeUnit
 
 val HttpModule = module {
+    //
     single {
         HttpClientFactory.create(engine = get())
     }
 
+    // Ktor
     single<HttpClientEngine> {
         OkHttp.create {
             preconfigured = get<OkHttpClient>()
         }
     }
 
+    //
     single<OkHttpClient> {
         val chuckerCollector = ChuckerCollector(
             context = get(),
@@ -55,6 +58,7 @@ val HttpModule = module {
             .build()
     }
 
+    // Retrofit
     single {
         Retrofit.Builder()
             .client(get())
@@ -64,6 +68,7 @@ val HttpModule = module {
             .build()
     }
 
+    // Moshi
     single {
         Moshi.Builder().add(KotlinJsonAdapterFactory()).build()
     }

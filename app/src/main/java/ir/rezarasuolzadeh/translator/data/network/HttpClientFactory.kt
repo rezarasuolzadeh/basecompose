@@ -39,7 +39,6 @@ object HttpClientFactory {
             defaultRequest {
                 url(urlString = BASE_URL)
                 contentType(type = ContentType.Application.Json)
-                header(key = "device", value = "SK210")
             }
         }
     }

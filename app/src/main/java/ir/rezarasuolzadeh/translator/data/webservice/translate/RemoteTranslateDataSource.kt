@@ -4,5 +4,5 @@ import ir.rezarasuolzadeh.translator.data.dto.translate.request.TranslateRequest
 import ir.rezarasuolzadeh.translator.data.dto.translate.response.TranslateResponseDto
 
 interface RemoteTranslateDataSource {
-    suspend fun translate(request: TranslateRequestDto): Result<TranslateResponseDto>
+    suspend fun translate(request: TranslateRequestDto): TranslateResponseDto
 }

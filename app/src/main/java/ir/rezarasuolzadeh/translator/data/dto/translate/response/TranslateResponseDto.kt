@@ -1,16 +1,16 @@
 package ir.rezarasuolzadeh.translator.data.dto.translate.response
 
-import com.squareup.moshi.Json
-import com.squareup.moshi.JsonClass
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
-@JsonClass(generateAdapter = true)
+@Serializable
 data class TranslateResponseDto(
-    @Json(name = "responseData")
+    @SerialName(value = "responseData")
     val responseData: TranslateResponseItemDto? = null,
 
-    @Json(name = "responseDetails")
+    @SerialName(value = "responseDetails")
     val responseDetails: String? = null,
 
-    @Json(name = "responseStatus")
+    @SerialName(value = "responseStatus")
     val responseStatus: Int? = null
 )

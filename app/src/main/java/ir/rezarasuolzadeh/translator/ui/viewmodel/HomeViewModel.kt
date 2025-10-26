@@ -9,12 +9,23 @@ import ir.rezarasuolzadeh.translator.ui.base.BaseAction
 import ir.rezarasuolzadeh.translator.ui.base.BaseViewModel
 import ir.rezarasuolzadeh.translator.ui.model.translate.request.TranslateRequestModel
 import ir.rezarasuolzadeh.translator.ui.state.HomeState
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.launch
 
 class HomeViewModel(
     private val translateRepository: TranslateRepository
 ) : BaseViewModel() {
+
+    init {
+        CoroutineScope(Dispatchers.IO).launch {
+            delay(3000)
+            onAction(action = HomeAction.OnGetTranslate)
+        }
+    }
 
     private val state = MutableStateFlow(value = HomeState())
     val stateValue = state.asStateFlow()

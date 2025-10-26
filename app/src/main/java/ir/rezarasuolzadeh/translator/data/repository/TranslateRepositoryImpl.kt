@@ -11,18 +11,29 @@ class TranslateRepositoryImpl(
 ) : TranslateRepository {
 
     override suspend fun translate(request: TranslateRequestModel): BaseResult {
-        return remoteTranslateDatasource.translate(request = request.toDto()).fold(
-            onSuccess = {
+        val result = remoteTranslateDatasource.translate(request = request.toDto())
+        return when(result.responseStatus) {
+            in 200..202 -> {
                 BaseResult.Success(
-                    data = it.toModel()
+                    data = result.toModel()
                 )
-            },
-            onFailure = {
-                BaseResult.Error(
+            }
+            in 400..403 -> {
+                return BaseResult.Error(
                     errorMessage = "عملیات با خطا مواجه شد"
                 )
             }
-        )
+            in 500..504 -> {
+                return BaseResult.Error(
+                    errorMessage = "عملیات با خطا مواجه شد"
+                )
+            }
+            else -> {
+                return BaseResult.Error(
+                    errorMessage = "عملیات با خطا مواجه شد"
+                )
+            }
+        }
     }
 
 }
