@@ -1,8 +1,8 @@
 package ir.rezarasuolzadeh.translator.ui.model.translate.request
 
-import ir.rezarasuolzadeh.translator.data.constant.FA
+import ir.rezarasuolzadeh.translator.data.constant.ENGLISH_TO_PERSIAN
 
 data class TranslateRequestModel(
     var q: String = "",
-    var target: String = FA
+    var pair: String = ENGLISH_TO_PERSIAN
 )

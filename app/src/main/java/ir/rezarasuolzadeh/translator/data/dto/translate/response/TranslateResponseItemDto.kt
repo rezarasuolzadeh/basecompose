@@ -6,5 +6,5 @@ import com.squareup.moshi.JsonClass
 @JsonClass(generateAdapter = true)
 data class TranslateResponseItemDto(
     @Json(name = "translatedText")
-    val translatedText: String
+    val translatedText: String? = null
 )

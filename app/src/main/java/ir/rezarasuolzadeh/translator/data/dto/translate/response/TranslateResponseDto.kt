@@ -5,6 +5,12 @@ import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
 data class TranslateResponseDto(
-    @Json(name = "translations")
-    val translations: List<TranslateResponseItemDto> = emptyList()
+    @Json(name = "responseData")
+    val responseData: TranslateResponseItemDto? = null,
+
+    @Json(name = "responseDetails")
+    val responseDetails: String? = null,
+
+    @Json(name = "responseStatus")
+    val responseStatus: Int? = null
 )

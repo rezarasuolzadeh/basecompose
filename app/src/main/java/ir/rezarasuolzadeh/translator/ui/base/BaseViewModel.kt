@@ -13,23 +13,12 @@ abstract class BaseViewModel() : ViewModel() {
     val baseUiStateValue = baseUiState.asStateFlow()
 
     protected fun <T> callWebService(
-        webService: suspend () -> Result<BaseResponse<T>, AppError>,
+        webService: suspend () -> T,
         onSuccess: (T) -> Unit = { data -> },
-        onError: (String, T?) -> Unit = { message, data -> },
-        showLoading: Boolean = true,
-        toastErrorMessage: Boolean = true
+        onError: (String) -> Unit = { message -> }
     ) {
         viewModelScope.launch {
-            updateLoadingState(isLoading = showLoading)
-            webService().onSuccess { response ->
-                onSuccess(response.data)
-            }.onError { error, response ->
-                updateLoadingState(isLoading = false)
-                if (toastErrorMessage) {
-                    updateErrorMessageState(errorMessage = error)
-                }
-                onError(error.message.orEmpty(), response?.data)
-            }
+            webService()
         }
     }
 

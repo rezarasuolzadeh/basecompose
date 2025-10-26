@@ -1,13 +1,8 @@
 package ir.rezarasuolzadeh.translator.data.dto.translate.request
 
-import com.squareup.moshi.Json
-import com.squareup.moshi.JsonClass
+import ir.rezarasuolzadeh.translator.data.constant.ENGLISH_TO_PERSIAN
 
-@JsonClass(generateAdapter = true)
 data class TranslateRequestDto(
-    @Json(name = "q")
-    val q: String,
-
-    @Json(name = "target")
-    val target: String
+    var q: String = "",
+    var pair: String = ENGLISH_TO_PERSIAN
 )

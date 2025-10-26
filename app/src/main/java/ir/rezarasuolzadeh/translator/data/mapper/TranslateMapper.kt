@@ -8,7 +8,9 @@ import ir.rezarasuolzadeh.translator.ui.model.translate.response.TranslateRespon
 import ir.rezarasuolzadeh.translator.ui.model.translate.response.TranslateResponseModel
 
 fun TranslateResponseDto.toModel() = TranslateResponseModel(
-    translations = translations
+    responseData = responseData?.toModel(),
+    responseDetails = responseDetails,
+    responseStatus = responseStatus
 )
 
 fun TranslateResponseItemDto.toModel() = TranslateResponseItemModel(
@@ -17,5 +19,5 @@ fun TranslateResponseItemDto.toModel() = TranslateResponseItemModel(
 
 fun TranslateRequestModel.toDto() = TranslateRequestDto(
     q = q,
-    target = target
+    pair = pair
 )
