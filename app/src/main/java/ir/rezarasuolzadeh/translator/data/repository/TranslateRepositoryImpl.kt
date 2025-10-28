@@ -2,9 +2,10 @@ package ir.rezarasuolzadeh.translator.data.repository
 
 import ir.rezarasuolzadeh.translator.data.mapper.toDto
 import ir.rezarasuolzadeh.translator.data.mapper.toModel
-import ir.rezarasuolzadeh.translator.data.webservice.translate.RemoteTranslateDataSource
+import ir.rezarasuolzadeh.translator.data.remote.translate.RemoteTranslateDataSource
+import ir.rezarasuolzadeh.translator.domain.repository.TranslateRepository
 import ir.rezarasuolzadeh.translator.ui.base.BaseResult
-import ir.rezarasuolzadeh.translator.ui.model.translate.request.TranslateRequestModel
+import ir.rezarasuolzadeh.translator.domain.model.translate.request.TranslateRequestModel
 
 class TranslateRepositoryImpl(
     private val remoteTranslateDatasource: RemoteTranslateDataSource

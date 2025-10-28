@@ -8,7 +8,7 @@ import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import io.ktor.client.engine.HttpClientEngine
 import io.ktor.client.engine.okhttp.OkHttp
-import ir.rezarasuolzadeh.translator.data.constant.BASE_URL
+import ir.rezarasuolzadeh.translator.data.network.BASE_URL
 import ir.rezarasuolzadeh.translator.data.network.HttpClientFactory
 import okhttp3.OkHttpClient
 import org.koin.dsl.module

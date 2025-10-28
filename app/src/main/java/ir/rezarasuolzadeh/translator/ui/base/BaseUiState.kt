@@ -1,6 +1,5 @@
 package ir.rezarasuolzadeh.translator.ui.base
 
-import ir.rezarasuolzadeh.translator.ui.routes.AppRoutes
 import ir.rezarasuolzadeh.translator.ui.routes.MainRoutes
 
 data class BaseUiState(
@@ -11,9 +10,9 @@ data class BaseUiState(
 )
 
 sealed interface AppNavigationDestination {
-    val route: AppRoutes?
+    val route: MainRoutes?
 
-    data class NavigateUp(override val route: AppRoutes? = null) : AppNavigationDestination
+    data class NavigateUp(override val route: MainRoutes? = null) : AppNavigationDestination
     data class Splash(override val route: MainRoutes.Splash = MainRoutes.Splash) : AppNavigationDestination
     data class Home(override val route: MainRoutes.Home = MainRoutes.Home) : AppNavigationDestination
 }

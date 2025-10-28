@@ -8,10 +8,10 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import ir.rezarasuolzadeh.translator.ui.routes.MainRoutes
 import ir.rezarasuolzadeh.translator.ui.base.AppNavigationDestination
-import ir.rezarasuolzadeh.translator.ui.screen.HomeRoot
-import ir.rezarasuolzadeh.translator.ui.screen.SplashRoot
-import ir.rezarasuolzadeh.translator.ui.viewmodel.HomeViewModel
-import ir.rezarasuolzadeh.translator.ui.viewmodel.SplashViewModel
+import ir.rezarasuolzadeh.translator.ui.screen.home.HomeRoot
+import ir.rezarasuolzadeh.translator.ui.screen.splash.SplashRoot
+import ir.rezarasuolzadeh.translator.ui.screen.home.HomeViewModel
+import ir.rezarasuolzadeh.translator.ui.screen.splash.SplashViewModel
 import org.koin.androidx.compose.koinViewModel
 import kotlin.let
 
