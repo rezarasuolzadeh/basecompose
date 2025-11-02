@@ -12,6 +12,8 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.setValue
 
 class HomeViewModel(
     private val translateRepository: TranslateRepository
@@ -27,9 +29,7 @@ class HomeViewModel(
     private val state = MutableStateFlow(value = HomeState())
     val stateValue = state.asStateFlow()
 
-    var activateDeviceRequest: TranslateRequestModel by mutableStateOf(
-        value = TranslateRequestModel()
-    )
+    var activateDeviceRequest by mutableStateOf(value = TranslateRequestModel())
         private set
 
     override fun onAction(action: BaseAction) {
